@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'expense_list_screen.dart';
 import 'expense_screen.dart';
 
 void main() {
@@ -13,10 +14,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData( colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: ExpenseScreen(),
+      home: ExpenseListScreen(),
     );
   }
 }
