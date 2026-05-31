@@ -18,4 +18,13 @@ class SharedPrefService {
 
     return expenseList .map((e)=> ExpenseModel.fromJson(e)).toList();
   }
+  static Future<void> saveBudget(double budget) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setDouble('budget', budget);
+  }
+
+  static Future<double> getBudget() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getDouble('budget') ?? 0.0;
+  }
 }

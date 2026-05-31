@@ -169,6 +169,7 @@ class _ExpenseScreenState extends State<ExpenseScreen> {
               SizedBox(height: 10,),
 
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     selectedDate.isEmpty
@@ -179,6 +180,7 @@ class _ExpenseScreenState extends State<ExpenseScreen> {
                   ),
                 ],
               ),
+              SizedBox(height: 20,),
               ElevatedButton(onPressed: ()async{
                 if(widget.expense == null){
                   addExpense();
@@ -186,7 +188,11 @@ class _ExpenseScreenState extends State<ExpenseScreen> {
                  await updateExpense();
                 }
                 Navigator.pop(context);
-              }, child: Text(widget.expense == null ?'Add Expense': 'Update Expense'),
+              },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: widget.expense == null ? Colors.green : Colors.blue,
+                ),
+                child: Text(widget.expense == null ?'Add Expense': 'Update Expense',style: TextStyle(color: Colors.white),),
               ),
             ],
           ),
