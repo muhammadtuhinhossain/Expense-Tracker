@@ -76,23 +76,31 @@ class _ExpenseListScreenState extends State<ExpenseListScreen> {
           ),
         ],
         bottom: PreferredSize(
-            preferredSize: Size.fromHeight(40),
+            preferredSize: Size.fromHeight(60),
             child: Container(
               color: Colors.orange.shade700,
               padding: EdgeInsets.symmetric(vertical: 8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text('Budget: ৳ ${budget.toStringAsFixed(0)}',
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  Expanded(
+                    child: Text('Budget: ৳ ${budget.toStringAsFixed(0)}',
+                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
                   ),
-                  Text('Expense: ৳ ${getTotalExpense().toStringAsFixed(0)}',
-                    style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),
+                  Container(width: 1, height: 20, color: Colors.white54),
+                  Expanded(
+                    child: Text('Expense: ৳ ${getTotalExpense().toStringAsFixed(0)}',
+                      style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),
+                    ),
                   ),
-                  Text('Due: ৳ ${getRemaining().toStringAsFixed(0)}',
-                    style: TextStyle(
-                      color: getRemaining() < 0 ? Colors.red.shade400 : Colors.greenAccent,
-                      fontWeight: FontWeight.bold,
+                  Container(width: 1, height: 20, color: Colors.white54),
+                  Expanded(
+                    child: Text('Due: ৳ ${getRemaining().toStringAsFixed(0)}',
+                      style: TextStyle(
+                        color: getRemaining() < 0 ? Colors.red.shade400 : Colors.greenAccent,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],
